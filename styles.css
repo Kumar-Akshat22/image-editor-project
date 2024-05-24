@@ -1,0 +1,163 @@
+*{
+
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#wrapper{
+
+    width: 100%;
+    /* overflow-x: hidden; */
+    background-color: rgb(255, 255, 255);
+
+}
+
+#navbar{
+
+    width: 100%;
+    background-color: cadetblue;
+}
+
+.nav-container{
+
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 2rem;
+}
+
+#nav-text{
+
+    text-align: center;
+}
+
+.imageUploadContainer{
+
+    max-width: 1140px;
+    margin: 0 auto;
+    border: 2px solid rgb(6, 202, 241);
+    border-radius: 6px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 15px;
+}
+
+.imageUploadContainerContent{
+
+    padding: 2rem 3rem;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.imageEditor{
+
+    max-width: 1140px;
+    margin: 1rem auto;
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.813);
+    color: white;
+}
+
+.imageEditorNavbar{
+
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 1rem;
+    /* background-color: grey; */
+}
+
+.imageContainer{
+
+    background-color: aquamarine;
+    display: flex;
+    gap: 2rem;
+}
+
+#uploadedImage{
+
+    display: none;
+    width: 500px;
+    height: 600px;
+    max-width: 100%;
+}
+
+
+.editorControls{
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn{
+
+    all: unset;
+    cursor: pointer;
+
+}
+
+#cropText{
+
+    font-size: large;
+
+}
+
+.flipControl{
+
+    width: 100%;
+    position: relative;
+}
+
+/* #flipImage{
+
+    position: absolute;
+} */
+
+.flipOptions{
+
+
+    display: none;
+    position: absolute;
+    top:0%;
+    right: 80%;
+    background-color: black;
+    border: 2px solid rgba(253, 252, 252, 0.461);
+    margin-top: 5px;
+    margin-right: 8px;
+}
+
+.flipOptions.active{
+
+    width: 110px;
+    display: flex;
+    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+#flipImageHorizontal{
+
+    /* border-bottom: 1px solid white; */
+}
+
