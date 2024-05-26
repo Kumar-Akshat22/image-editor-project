@@ -2,49 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <!-- Cropper.js CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" />
     <title>Image Uploader</title>
 </head>
 
 <body>
-
     <div id="wrapper">
-
         <!-- Navbar -->
         <nav id="navbar">
             <div class="nav-container">
-                <div>
-                    <i class="fa-solid fa-chevron-left"></i>
-                </div>
+                <i class="fa-solid fa-chevron-left"></i>
 
-                <h1 id="nav-text">Add Image / Icon</h1>
 
+                <h1 id="nav-text">Add Image/Icon</h1>
             </div>
         </nav>
 
         <!-- Upload Image Container -->
         <div class="imageUploadContainer">
             <div class="imageUploadContainerContent">
-                <p>Upload Image</p>
+                <p id="uploadImageText">Upload Image</p>
 
                 <button id="chooseImage">Choose from Device</button>
-                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <input type="file" id="fileInput" accept="image/*" style="display: none" />
             </div>
         </div>
 
         <!-- Image Editor -->
         <div class="imageEditor">
-
             <!-- Editor Navbar -->
             <div class="imageEditorNavbar">
-                
                 <div class="closeEditor">
                     <i class="fa-solid fa-xmark fa-lg"></i>
                 </div>
@@ -62,15 +56,15 @@
                         </button>
 
                         <div class="flipOptions">
-                            <div>
+                            <button id="flipImageHorizontal" class="btn">
+                                <p class="flipOptionsText">Flip horizontally</p>
+                            </button>
 
-                                <button id="flipImageHorizontal" class="btn">Flip horizontally</button>
-                            </div>
 
-                            <div>
 
-                                <button id="flipImageVertical" class="btn">Flip vertically</button>
-                            </div>
+                            <button id="flipImageVertical" class="btn">
+                                <p class="flipOptionsText">Flip vertically</p>
+                            </button>
                         </div>
                     </div>
 
@@ -79,24 +73,65 @@
                         <p id="cropText">Crop</p>
                     </button>
                 </div>
-
-
             </div>
 
             <!-- Image Container -->
             <div class="imageContainer">
-                <img id="uploadedImage">
+                <img id="uploadedImage" />
             </div>
-
         </div>
 
-        <div>
-            <img id="outputImage">
+        <!-- Frame Selection Modal -->
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+
+                <h2 id="uploadedImageText">Uploaded Image</h2>
+                <div class="outputImageContainer">
+
+                    <img id="outputImage" />
+
+
+
+
+                </div>
+
+                <!-- Frame Options -->
+                <div id="frameType">
+                    <button class="frame" data-frame="original">Original</button>
+
+                    <button class="frame" data-frame="heart">
+                        <img src="assets/user_image_frame_1.png" alt="Heart Frame" />
+                    </button>
+
+                    <button class="frame" data-frame="square">
+                        <img src="assets/user_image_frame_2.png" alt="Square Frame" />
+                    </button>
+
+                    <button class="frame" data-frame="circle">
+                        <img src="assets/user_image_frame_3.png" alt="Circle Frame" />
+                    </button>
+
+                    <button class="frame" data-frame="rounded-square">
+                        <img src="assets/user_image_frame_4.png" alt="Rounded Square Frame" />
+                    </button>
+                </div>
+
+                <!-- Use this Image button -->
+                <button id="useThisImageButton">
+                    <p>Use this image</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Final Image Container -->
+        <div class="finalImageContainer">
+            <img id="finalFramedImage" />
         </div>
     </div>
     <!-- Cropper.js -->
     <script src="https://unpkg.com/cropperjs"></script>
-    <script src="scripts.js"></script>
+    <!-- <script src="scripts.js"></script> -->
     <script src="script.js"></script>
 </body>
 

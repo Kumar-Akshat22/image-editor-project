@@ -9,20 +9,23 @@ body{
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    font-family:sans-serif;
+    background-color: rgba(241, 240, 240, 0.573);
 }
 
 #wrapper{
 
-    width: 100%;
-    /* overflow-x: hidden; */
-    background-color: rgb(255, 255, 255);
-
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* padding: 1rem 1rem; */
 }
 
 #navbar{
 
     width: 100%;
-    background-color: cadetblue;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .nav-container{
@@ -33,8 +36,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
     gap: 2rem;
+    color: gray;
 }
 
 #nav-text{
@@ -44,10 +47,10 @@ body{
 
 .imageUploadContainer{
 
-    max-width: 1140px;
+    width: 90%;
     margin: 0 auto;
-    border: 2px solid rgb(6, 202, 241);
-    border-radius: 6px;
+    border: 2px solid rgb(209, 209, 209);
+    border-radius: 10px;
     margin-top: 2rem;
     display: flex;
     justify-content: center;
@@ -59,22 +62,48 @@ body{
 .imageUploadContainerContent{
 
     padding: 2rem 3rem;
-    
+    max-width: 1140px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     justify-content: center;
 }
 
+#chooseImage{
+
+    width: 100%;
+    margin-top: 15px;
+    padding: 1rem 2rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: cadetblue;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+}
+
+
+#uploadImageText{
+
+    text-align: center;
+    font-size:large;
+    
+}
+
 .imageEditor{
 
+    display: none;
     max-width: 1140px;
     margin: 1rem auto;
+    background-color: rgba(0, 0, 0, 0.813);
+    color: white;
+}
+
+.imageEditor.active{
+
 
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.813);
-    color: white;
 }
 
 .imageEditorNavbar{
@@ -87,7 +116,7 @@ body{
 
 .imageContainer{
 
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     display: flex;
     gap: 2rem;
 }
@@ -139,25 +168,196 @@ body{
     position: absolute;
     top:0%;
     right: 80%;
-    background-color: black;
-    border: 2px solid rgba(253, 252, 252, 0.461);
-    margin-top: 5px;
-    margin-right: 8px;
+    background-color: rgba(94, 94, 94, 0.868);
+    margin-top: 25px;
+    margin-right: 5px;
+}
+
+.flipOptionsText{
+
+    font-size: 1.2rem;
+
 }
 
 .flipOptions.active{
 
-    width: 110px;
+    z-index: 20;
+    width: 150px;
     display: flex;
     padding: 0.5rem;
     flex-direction: column;
+    /* justify-content: center; */
+    align-items: start;
+    gap: 0.7rem;
+}
+
+.modal{
+
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 10px;
+    z-index: 10;
+    background-color: rgba(182, 183, 183, 0.584);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.2s ease-in-out 0s;
+    display: none;
+}
+
+.modal-content{
+    
+    position: fixed;
+    top: 10%; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;  
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#frameType{
+
+    display: flex;
+    gap: 0.3rem;
+
+}
+
+
+.frame{
+
+    all: unset;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 8px;
+    padding: 2px;
+    cursor: pointer;
+}
+.frame img{
+
+    width: 50px;
+    height: 40px;
+    
+}
+
+#useThisImageButton{
+
+    /* all: unset; */
+    width: 100%;
+    margin-top: 10px;
+    padding: 1rem 2rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: cadetblue;
+    cursor: pointer;
+    color: white;
+}
+
+.close-button{
+
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.3rem;
+    font-size: 2rem;
+    width: 30px;    
+    height: 30px;
+    background-color: rgba(180, 180, 180, 0.865);
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
 }
 
-#flipImageHorizontal{
+#uploadedImageText{
 
-    /* border-bottom: 1px solid white; */
+    margin-top: 40px;
 }
 
+#useThisImageButton p{
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.outputImageContainer{
+
+    height: 310px;
+    width: 310px;
+    /* margin-top: 10px; */
+    margin: 10px auto;
+
+}
+
+#outputImage{
+
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background: radial-gradient(circle, transparent 70%, rgba(231, 231, 231, 0.5) 100%);
+
+}
+
+
+.frame.original{
+
+    clip-path: none;
+}
+
+.frame.heart{
+
+    /* filter: blur(5px); */
+    
+    clip-path: path('M75.215 0.145534C69.954 0.589882 64.923 1.64712 58.9994 3.57773C51.6152 5.96802 45.3941 9.12441 38.4967 13.9663C26.4872 22.3935 18.6567 31.4337 11.313 45.4077C5.65989 56.1639 1.57557 69.7242 0.263722 82.074C-0.0879074 85.3683 -0.0879074 96.385 0.263722 99.5721C1.15632 107.662 3.15791 116.626 5.63284 123.628C9.10856 133.45 13.4634 141.647 19.7521 150.197C23.2549 154.962 27.9613 160.478 45.2588 180.03C58.9183 195.474 61.1092 197.88 66.857 203.718C68.9262 205.817 71.5634 208.56 72.713 209.816C73.8625 211.073 88.2658 227.299 104.698 245.9C121.143 264.486 136.115 281.341 137.967 283.363C147.488 293.675 152.087 297.644 156.496 299.314C159.647 300.509 162.622 300.157 166.084 298.149C169.587 296.127 173.671 292.434 180.704 284.896C182.273 283.21 193.89 270.155 206.535 255.86C229.54 229.858 231.447 227.743 236.627 222.457C241.779 217.186 243.821 214.918 264.351 191.675C295.917 155.943 297.567 153.982 302.909 145.953C306.425 140.651 308.738 136.499 311.064 131.289C315.716 120.87 318.678 109.486 319.828 97.5802C320.057 95.1899 320.057 86.4102 319.828 84.0199C318.597 71.3024 315.283 58.9066 310.374 48.6407C305.56 38.5586 298.811 29.0281 291.873 22.4855C281.405 12.6332 271.1 6.59623 258.13 2.75033C251.949 0.91165 247.392 0.176179 241.292 0.0229559C232.989 -0.176234 225.915 0.91165 217.814 3.65435C213.703 5.04868 210.146 6.65752 205.764 9.10909C196.879 14.0888 190.103 19.5129 183.503 26.9136C179.784 31.0813 177.458 34.1304 172.833 40.8723C169.384 45.9133 167.612 48.2729 166.179 49.8052C163.082 53.1148 160.201 54.1261 157.307 52.9309C154.616 51.8277 152.682 49.606 147.543 41.7916C142.958 34.8199 140.578 31.6329 136.628 27.1741C129.041 18.6089 120.724 12.2195 110.648 7.22445C102.872 3.36322 95.7718 1.24874 87.3191 0.268113C85.4257 0.0536005 77.2571 -0.0383334 75.215 0.145534Z');
+    /* background: radial-gradient(circle, transparent 70%, rgba(0, 0, 0, 0.5) 100%); */
+
+}
+
+.frame.circle{
+
+    clip-path: circle(40%);
+}
+
+.frame.square{
+
+    clip-path: path('M113.834 0.33666C86.6517 0.920094 67.7061 3.25383 55.1215 7.51738C32.1945 15.2815 15.5828 31.5728 7.66596 54.0574C4.27956 63.5719 2.12873 77.305 0.801622 97.5008C0.0694249 109.08 -0.296673 168.725 0.298236 190.85C1.48806 236.044 4.87446 252.38 16.8642 270.063C20.7997 275.897 29.3115 284.244 35.3522 288.104C45.2368 294.522 54.6181 298.157 68.0722 300.76C85.233 304.081 94.9347 304.575 145.182 304.934C205.862 305.293 226.867 304.261 244.669 300.042C261.875 295.958 273.636 289.765 284.574 279.083C295.419 268.402 301.826 256.733 305.945 239.948C310.246 222.535 311.299 201.891 310.933 142.605C310.612 95.93 310.155 86.8195 307.317 70.5731C304.938 56.6156 300.179 44.2737 293.314 34.0412C288.463 26.7707 279.219 18.4231 271.028 13.8005C254.37 4.51046 236.706 1.27913 196.664 0.33666C177.764 -0.112135 136.075 -0.112135 113.834 0.33666Z');
+}
+
+.frame.rounded-square{
+
+    clip-path: path("M118.227 0.356515C89.9951 0.974381 70.3185 3.44584 57.2483 7.96102C33.4367 16.1834 16.1841 33.4361 7.96171 57.2477C4.44464 67.3237 2.21082 81.8673 0.832505 103.255C0.0720566 115.517 -0.308168 178.682 0.309697 202.114C1.54543 249.974 5.0625 267.275 17.5148 286.001C21.6023 292.179 30.4425 301.02 36.7162 305.107C46.9822 311.904 56.7255 315.753 70.6987 318.51C88.5217 322.027 98.5977 322.55 150.783 322.93C213.806 323.31 235.621 322.217 254.109 317.749C271.98 313.424 284.195 306.866 295.554 295.554C306.818 284.242 313.472 271.885 317.749 254.109C322.217 235.668 323.31 213.805 322.93 151.021C322.597 101.591 322.122 91.9433 319.175 74.7381C316.704 59.9568 311.761 46.8866 304.632 36.0502C299.594 28.3506 289.993 19.5104 281.486 14.615C264.185 4.77663 245.84 1.35461 204.253 0.356515C184.623 -0.118766 141.325 -0.118766 118.227 0.356515Z");
+}
+
+.finalImageContainer{
+
+    display: none;
+
+    
+
+}
+
+.finalImageContainer.active{
+
+    display: block;
+    width: 350px;
+    height: 350px;
+    margin: 5px auto;
+    transform: translateX(10px);
+    /* transform: translateY(10px); */
+}
+
+#finalFramedImage{
+
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
